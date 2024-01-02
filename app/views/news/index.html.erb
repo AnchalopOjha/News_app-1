@@ -1,0 +1,47 @@
+ <%= link_to "New news", new_news_path %><br>
+  <%= link_to "ALL category",    categories_path %><br>
+   <%= link_to "All city",    cities_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+
+      <th scope="col">City</th>
+      <th scope="col">category name</th>
+
+      
+
+      <th scope="col">Discriptions</th>
+       <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @news.each do |news|%>
+    <tr>
+      <td><%= news.tittle%></td>
+         <td><%= news.city.name%></td>
+  
+     <td><%= news.category.name%></td>
+
+
+      <td><%= news.description%></td>
+     
+     <td><%= news.created_at.strftime('%B %d, %Y - %H:%M:%S') %></td>
+
+ <td>
+      <% if news.image.attached? %>
+         <%= image_tag(url_for(news.image), alt: "News Image", class: "Our-product-image", style: "max-width: 100px;") %>
+      <% else %>
+        <%= "No photo available" %>
+      <% end %>
+    </td>
+
+    </tr>
+    <%end%>
+    
+  </tbody>
+</table>
+
+
+ 

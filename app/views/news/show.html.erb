@@ -1,0 +1,8 @@
+<h1><%= @news.title %></h1>
+<p><strong>Author:</strong> <%= @news.author_name %></p>
+<p><strong>Description:</strong> <%= @news.description %></p>
+<p><strong>Category:</strong> <%= @news.category.name %></p>
+<p><strong>City:</strong> <%= @news.city.name %></p>
+<p><strong>Published At:</strong> <%= @news.created_at.to_formatted_s(:long) %></p>
+
+<%= link_to 'Back', news_index_path %> <!-- Link to go back to the index page -->
